@@ -1,130 +1,106 @@
-# Quick Start Guide - 🎬 Video Downloader
+# 🎬 Quick Start - Video Downloader Web
 
-## 🚀 Quick Installation (Windows)
+## ⚡ Fastest Setup (30 seconds)
 
-1. **Double-click** `install.bat` to set up the tool
-2. Wait for installation to complete
-3. A shortcut "Video Downloader" will appear on your Desktop
-
-## 🎯 Quick Usage
-
-### Using the GUI (Easiest)
+### Windows
 ```
-Click the "Video Downloader" shortcut on Desktop
-OR type in terminal: python gui.py
+1. Find and double-click: run.bat
+2. Browser opens automatically
+3. Paste video URL and download!
 ```
 
-### Using Command Line
+### macOS/Linux
 ```bash
-# YouTube download
-python main.py -u "https://www.youtube.com/watch?v=VIDEO_ID"
-
-# TikTok download without watermark
-python main.py -u "https://www.tiktok.com/@user/video/ID" -wm
-
-# Audio only (MP3)
-python main.py -u "URL" -a
-
-# Custom folder and filename
-python main.py -u "URL" -o "./my_videos" -n "my-video"
+bash run.sh
+# Browser opens automatically
 ```
 
-## 📋 Common Tasks
+## 🌐 What You'll See
 
-### Download YouTube Video in Best Quality
-```bash
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-```
-Output: Video saved to `./downloads/` folder
+A beautiful web interface with:
+- 📝 URL input field
+- 🎯 Platform selector (YouTube/TikTok/Auto)
+- ⭐ Quality selector
+- 🎵 Audio format options
+- ✅ Real-time progress tracking
 
-### Download YouTube Video as MP3 Audio
-```bash
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -a
-```
-Output: MP3 file in `./downloads/` folder
+## 🎯 Common Tasks
+
+### Download YouTube Video
+1. Paste URL: `https://www.youtube.com/watch?v=...`
+2. Select quality: "Tốt nhất"
+3. Click "Tải video"
+4. ✅ Done! Video saved to `./downloads/`
+
+### Download as MP3
+1. Paste URL
+2. ✅ Check "Chỉ tải âm thanh"
+3. Select format: MP3, M4A, or WAV
+4. Click "Tải video"
 
 ### Download TikTok Without Watermark
-```bash
-python main.py -u "https://www.tiktok.com/@username/video/1234567890" -wm
-```
-Output: Video without TikTok logo
+1. Paste TikTok URL
+2. ✅ Verify "Xóa logo/watermark" is checked
+3. Click "Tải video"
+4. ✅ No TikTok logo!
 
-### Download to Custom Location
-```bash
-python main.py -u "URL" -o "C:/my_videos"
-```
+## 📁 Where Are Downloads?
 
-### Download with Custom Filename
-```bash
-python main.py -u "URL" -n "my-awesome-video"
-```
-Output: `./downloads/my-awesome-video.mp4`
+All videos go to: `./downloads/` folder
 
-## 🎯 Quality Options
+## 🔗 Access the Web App
 
-- **best**: Highest quality available (default)
-- **high**: Up to 1080p
-- **medium**: Up to 720p  
-- **low**: Up to 480p
+- **Automatic**: Browser opens at `http://localhost:5000`
+- **Manual**: Open `http://localhost:5000` in any browser
+- **From another device**: Use your computer's IP address (e.g., `http://192.168.1.x:5000`)
 
-Example:
-```bash
-python main.py -u "URL" -q high
-```
+## ⚙️ Port Already In Use?
 
-## 🎵 Audio Formats
+If port 5000 is busy, edit `app.py`:
+```python
+# Change this line:
+app.run(debug=True, host="0.0.0.0", port=5000)
 
-- **mp3**: Most compatible (default)
-- **m4a**: Good quality, smaller size
-- **wav**: Lossless audio
-- **aac**: High quality
+# To this:
+app.run(debug=True, host="0.0.0.0", port=5001)
 
-Example:
-```bash
-python main.py -u "URL" -a --audio-format m4a
+# Then access at http://localhost:5001
 ```
 
-## 🆘 Troubleshooting
+## 🆘 Quick Troubleshooting
 
-### Error: "python is not recognized"
-- **Windows**: Reinstall Python and check "Add Python to PATH"
-- **Mac/Linux**: Use `python3` instead of `python`
+| Problem | Solution |
+|---------|----------|
+| "Python not found" | Install Python from python.org |
+| "FFmpeg not found" | Run: `choco install ffmpeg` (Windows) or `brew install ffmpeg` (Mac) |
+| "Module not found" | Run: `pip install -r requirements.txt` |
+| Browser won't open | Manually go to `http://localhost:5000` |
+| Download fails | Check URL format, try different video |
 
-### Error: "FFmpeg not found"
-- **Windows**: Run `choco install ffmpeg` or download from ffmpeg.org
-- **Mac**: Run `brew install ffmpeg`
-- **Linux**: Run `sudo apt-get install ffmpeg`
+## 🎨 Features
 
-### Download fails
-- Check if the URL is correct
-- Try a different video
-- Check your internet connection
+✨ Modern dark theme with animated background
+📱 Responsive design (works on phone, tablet, desktop)
+⚡ Fast, lightweight interface
+🎯 Simple and intuitive to use
+💬 Clear Vietnamese interface
 
-## 📁 Where are Downloaded Files?
+## 📚 For More Info
 
-By default, videos are saved in: `./downloads/` folder in the project directory
+- Read `README.md` for detailed documentation
+- Check console output for error messages
+- Try a different video if one fails
 
-You can change this with `-o` option:
-```bash
-python main.py -u "URL" -o "D:/Videos"
-```
+## 🚀 Pro Tips
 
-## ℹ️ Tips
-
-1. **First time setup**: Run `install.bat` (Windows) or `install.sh` (Mac/Linux)
-2. **GUI is easier**: Use `gui.py` for a user-friendly interface
-3. **Check URLs**: Make sure to copy the full video URL
-4. **File size**: High-quality videos can be large (100MB+)
-5. **Patience**: Large videos may take a few minutes to download
-
-## 🎓 All Commands Reference
-
-```bash
-python main.py --help
-```
-
-This shows all available options with descriptions.
+1. **Batch downloads**: Download multiple videos one after another
+2. **Best quality**: Select "Tốt nhất" for highest resolution
+3. **Save space**: Use "Chỉ tải âm thanh" for audio-only files
+4. **Network issues**: If stuck, refresh browser and retry
 
 ---
 
-**Need more help?** See the full README.md file for detailed documentation.
+**That's it!** 🎉 You're ready to download videos.
+
+**Questions?** Check README.md for more details.
+

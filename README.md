@@ -1,6 +1,6 @@
-# 🎬 Video Downloader - YouTube & TikTok
+# 🎬 Video Downloader - Web Version
 
-A powerful tool to download videos from YouTube and TikTok with high quality, without watermarks, and with multiple format options.
+A modern, beautiful web application to download videos from YouTube and TikTok with high quality, without watermarks, and with multiple format options.
 
 ## ✨ Features
 
@@ -9,32 +9,166 @@ A powerful tool to download videos from YouTube and TikTok with high quality, wi
 - **🚫 No Watermarks**: Removes TikTok watermarks (when possible)
 - **🎵 Audio Extraction**: Download audio only in MP3, M4A, WAV, or AAC format
 - **🎛️ Format Options**: Customizable video and audio formats
-- **📁 Flexible Output**: Custom filenames and output directories
-- **🖥️ GUI & CLI**: Both graphical and command-line interfaces available
+- **🌐 Web Interface**: Beautiful, modern UI with responsive design
+- **⚡ Real-time Progress**: Live download progress tracking
+- **💻 Cross-Platform**: Works on Windows, macOS, and Linux
+- **☁️ Cloud Ready**: Deploy on Railway, Render, or Replit for free
 
-## 🚀 Installation
+## 🚀 Quick Start
 
-### Prerequisites
-- Python 3.7 or higher
-- FFmpeg (required for audio conversion)
+### 🖥️ Run Locally
 
-### Step 1: Clone or Download
-
+**Windows:**
 ```bash
-git clone <repository-url>
-cd "download video from youtube tiktok"
+# Double-click run.bat
+# OR manually:
+pip install -r requirements.txt
+python app.py
+# Go to http://localhost:5000
 ```
 
-### Step 2: Install FFmpeg
+**macOS/Linux:**
+```bash
+bash run.sh
+```
 
-**Windows (using Chocolatey):**
+### ☁️ Deploy Online (Recommended)
+
+**Deploy to Railway.app (Free):**
+
+See [GITHUB-DEPLOY.md](GITHUB-DEPLOY.md) for complete instructions.
+
+Quick steps:
+1. Push to GitHub: `git push`
+2. Go to https://railway.app
+3. Connect GitHub
+4. Deploy
+5. Get public URL ✅
+
+---
+
+## 📖 Documentation
+
+- **[SETUP.md](SETUP.md)** - Installation guide
+- **[QUICKSTART.md](QUICKSTART.md)** - Quick reference
+- **[DEPLOY.md](DEPLOY.md)** - Deployment options
+- **[GITHUB-DEPLOY.md](GITHUB-DEPLOY.md)** - GitHub & Railway setup
+
+---
+
+## 📁 Project Structure
+
+```
+download-video-tool/
+├── app.py                      # Flask backend
+├── requirements.txt            # Python dependencies
+├── Procfile                    # Production config
+├── runtime.txt                 # Python version
+├── packages.txt                # System packages (FFmpeg)
+├── templates/
+│   └── index.html             # Web interface
+├── static/
+│   ├── css/
+│   │   └── style.css          # Styling
+│   └── js/
+│       └── app.js             # Frontend logic
+├── downloader/                # Video download modules
+│   ├── __init__.py
+│   ├── config.py
+│   ├── youtube_downloader.py
+│   └── tiktok_downloader.py
+└── .github/workflows/          # GitHub Actions (CI/CD)
+```
+
+---
+
+## 🎯 How to Use
+
+1. **Enter Video URL**: YouTube or TikTok link
+2. **Select Platform**: Auto-detect or manual choice
+3. **Choose Quality**: Best, High, Medium, or Low
+4. **Select Format**: MP3, M4A, WAV, or AAC (for audio)
+5. **Check Options**:
+   - ☑️ Audio only
+   - ☑️ Remove watermark (TikTok)
+6. **Click "Tải video"** and wait!
+
+---
+
+## 🛠️ Technology Stack
+
+- **Backend**: Flask + Python
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Video Processing**: yt-dlp + FFmpeg
+- **Hosting**: Railway, Render, or Replit
+- **Package Management**: pip
+
+---
+
+## 🌐 Deployment Options
+
+| Platform | Cost | Setup | Performance |
+|----------|------|-------|-------------|
+| **Railway** ⭐ | $5/month | ⭐⭐⭐ | ⚡⚡⚡ |
+| **Render** | Free (limited) | ⭐⭐ | ⚡⚡ |
+| **Replit** | Free | ⭐⭐⭐ | ⚡ |
+
+**Recommended**: Railway.app (best balance of cost and performance)
+
+## 📖 How to Use
+
+1. **Paste URL**: Paste your YouTube or TikTok video URL
+2. **Choose Platform**: Auto-detect or select manually
+3. **Select Quality**: Best, High, Medium, or Low
+4. **Set Options**: 
+   - Audio only (download as MP3, M4A, WAV, or AAC)
+   - Remove watermark (for TikTok)
+5. **Download**: Click "Tải video" and wait for completion
+
+## 🎯 Quality Options
+
+### YouTube
+- **🔥 Best**: Highest available quality (usually 1080p or 4K)
+- **⭐ High**: Up to 1080p
+- **📺 Medium**: Up to 720p
+- **💾 Low**: Up to 480p
+
+### TikTok
+- All quality levels supported
+- Watermark removal available
+
+## 📁 File Structure
+
+```
+download video from youtube tiktok/
+├── app.py                          # Flask backend
+├── run.bat                         # Windows startup (double-click)
+├── run.sh                          # Mac/Linux startup
+├── requirements.txt                # Python dependencies
+├── README.md                       # This file
+├── templates/
+│   └── index.html                 # Web interface
+├── static/
+│   ├── css/
+│   │   └── style.css              # Styling
+│   └── js/
+│       └── app.js                 # Frontend logic
+└── downloader/
+    ├── __init__.py
+    ├── config.py
+    ├── youtube_downloader.py
+    └── tiktok_downloader.py
+```
+
+## 🛠️ Install FFmpeg
+
+**Windows:**
 ```powershell
+# Using Chocolatey (fastest)
 choco install ffmpeg
-```
 
-**Windows (Manual):**
-1. Download from https://ffmpeg.org/download.html
-2. Extract and add to PATH
+# Or download from https://ffmpeg.org/download.html
+```
 
 **macOS:**
 ```bash
@@ -46,197 +180,101 @@ brew install ffmpeg
 sudo apt-get install ffmpeg
 ```
 
-### Step 3: Install Python Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## 📖 Usage
-
-### Method 1: GUI Application (Recommended for beginners)
-
-```bash
-python gui.py
-```
-
-A user-friendly interface will open where you can:
-- Enter video URL
-- Select platform (auto-detect or manual)
-- Choose quality and format
-- Set output directory
-- View download progress and logs
-
-### Method 2: Command Line Interface
-
-#### Basic YouTube download (best quality):
-```bash
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-```
-
-#### Download TikTok without watermark:
-```bash
-python main.py -u "https://www.tiktok.com/@username/video/1234567890" -wm
-```
-
-#### Download audio only (MP3):
-```bash
-python main.py -u "URL" -a --audio-format mp3
-```
-
-#### Custom quality and format:
-```bash
-python main.py -u "URL" -q high -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"
-```
-
-#### Save with custom filename:
-```bash
-python main.py -u "URL" -n "my-video" -o "./my-downloads"
-```
-
-### CLI Arguments
-
-| Argument | Short | Description | Options |
-|----------|-------|-------------|---------|
-| `--url` | `-u` | Video URL (required) | YouTube or TikTok URL |
-| `--platform` | `-p` | Video platform | `youtube`, `tiktok`, `auto` |
-| `--quality` | `-q` | Video quality | `best`, `high`, `medium`, `low` |
-| `--format` | `-f` | Custom format string | yt-dlp format specification |
-| `--audio-only` | `-a` | Download audio only | Flag (no value) |
-| `--remove-watermark` | `-wm` | Remove watermark | Flag (only for TikTok) |
-| `--output` | `-o` | Output directory | Path (default: `./downloads`) |
-| `--name` | `-n` | Custom filename | String (without extension) |
-| `--audio-format` | | Audio format | `mp3`, `m4a`, `wav`, `aac` |
-
-## 📋 Examples
-
-### YouTube Examples
-
-```bash
-# Download best quality video
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-
-# Download 720p MP4
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -q high
-
-# Download audio only
-python main.py -u "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -a
-
-# Custom format (1080p or 720p MP4)
-python main.py -u "URL" -f "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"
-```
-
-### TikTok Examples
-
-```bash
-# Download without watermark
-python main.py -u "https://www.tiktok.com/@username/video/1234567890" -p tiktok -wm
-
-# Download audio only
-python main.py -u "https://www.tiktok.com/@username/video/1234567890" -a --audio-format mp3
-
-# Save to custom location with custom name
-python main.py -u "https://www.tiktok.com/@username/video/1234567890" -o "./tiktoks" -n "viral_video"
-```
-
-## 🎯 Quality Options
-
-### YouTube
-- **Best** (default): Highest available quality (usually 1080p or 4K)
-- **High**: Up to 1080p
-- **Medium**: Up to 720p
-- **Low**: Up to 480p
-
-### TikTok
-- **Best**: Highest available quality
-- **High**: High quality
-- **Medium**: Medium quality
-- **Low**: Low quality
-
-## 📁 File Structure
-
-```
-download video from youtube tiktok/
-├── main.py                          # CLI entry point
-├── gui.py                          # GUI application
-├── requirements.txt                # Python dependencies
-├── README.md                       # This file
-└── downloader/
-    ├── __init__.py                # Package initialization
-    ├── config.py                  # Configuration settings
-    ├── youtube_downloader.py      # YouTube downloader
-    └── tiktok_downloader.py       # TikTok downloader
-```
-
 ## 🔧 Troubleshooting
 
-### Issue: "yt-dlp not found"
-**Solution**: Install dependencies
-```bash
-pip install -r requirements.txt
+### Issue: "Port 5000 already in use"
+**Solution**: Change the port in `app.py`:
+```python
+app.run(debug=True, host="0.0.0.0", port=5001)  # Use 5001 instead
 ```
 
 ### Issue: "FFmpeg not found"
-**Solution**: Install FFmpeg (see Installation section)
+**Solution**: Install FFmpeg (see section above)
 
-### Issue: Download fails with 403 error
-**Solution**: The video might be restricted. Try:
-- Using a VPN
-- Checking if the URL is correct
-- Waiting a few hours before retrying
+### Issue: Download fails
+**Solution**:
+- Check if the URL is correct
+- Ensure you have internet connection
+- Try a different video
+- Update yt-dlp: `pip install --upgrade yt-dlp`
 
-### Issue: TikTok watermark not removed
-**Solution**: This is expected if TikTok blocks the API. The tool will still download the video with watermark.
+### Issue: Browser doesn't open automatically
+**Solution**: Manually open `http://localhost:5000` in your browser
 
-### Issue: No audio in downloaded video
-**Solution**: Ensure FFmpeg is properly installed and in PATH. You can verify:
-```bash
-ffmpeg -version
-```
+## 📱 Responsive Design
+
+The web app works perfectly on:
+- 🖥️ Desktop computers
+- 💻 Laptops
+- 📱 Tablets
+- 📲 Mobile phones
 
 ## ⚠️ Legal Notice
 
-This tool is for **personal use only**. Respect copyright and intellectual property rights:
-- Only download content you have permission to download
-- Do not redistribute downloaded content without permission
-- Check local laws regarding video downloading
+**Personal Use Only**: This tool is for downloading videos you have permission to download. 
 
-## 🤝 Contributing
+Always respect:
+- Copyright laws
+- Creator rights
+- Terms of service of YouTube and TikTok
+- Local regulations
 
-Contributions are welcome! Feel free to:
-- Report bugs
-- Suggest features
-- Submit pull requests
+## 🎓 Technology Stack
+
+- **Backend**: Flask + Python
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Video Processing**: yt-dlp + FFmpeg
+- **HTTP**: CORS-enabled REST API
+
+## 🐛 Report Issues
+
+If you encounter bugs:
+1. Check the console output
+2. Try the latest version
+3. Report on GitHub with details
 
 ## 📝 License
 
 This project is provided as-is for educational purposes.
 
-## 🙋 Support
-
-For issues or questions:
-1. Check the Troubleshooting section
-2. Review the Examples section
-3. Check if the URL format is correct
-
-## 🎓 Technical Details
-
-### Technologies Used
-- **yt-dlp**: YouTube/TikTok downloading and format handling
-- **requests**: HTTP requests for file downloads
-- **FFmpeg**: Audio/video processing and conversion
-- **tkinter**: Cross-platform GUI toolkit (built-in with Python)
-
-### Supported Formats
-
-**Video Formats**: MP4, MKV, WebM, etc.
-**Audio Formats**: MP3, M4A, WAV, AAC
-
-### Platform Support
-- ✅ Windows
-- ✅ macOS
-- ✅ Linux
-
 ---
 
 **Made with ❤️ for video enthusiasts**
+
+### API Documentation
+
+The app provides a REST API for backend integration:
+
+**Download Endpoint**
+```
+POST /api/download
+Content-Type: application/json
+
+{
+  "url": "video_url",
+  "platform": "auto|youtube|tiktok",
+  "quality": "best|high|medium|low",
+  "audio_only": false,
+  "audio_format": "mp3|m4a|wav|aac",
+  "remove_watermark": true
+}
+
+Response:
+{
+  "status": "started",
+  "session_id": "uuid",
+  "message": "Message"
+}
+```
+
+**Progress Endpoint**
+```
+GET /api/progress/{session_id}
+
+Response:
+{
+  "status": "downloading|completed|error",
+  "progress": 0-100,
+  "message": "Status message"
+}
+```

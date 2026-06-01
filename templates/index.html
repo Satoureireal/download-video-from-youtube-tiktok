@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader - Tải Video YouTube & TikTok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="animated-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <h1>Video Downloader</h1>
+            </div>
+            <p class="subtitle">Tải video từ YouTube & TikTok - Chất lượng cao, không logo</p>
+        </header>
+
+        <!-- Main Card -->
+        <div class="card">
+            <!-- Form Section -->
+            <div class="form-section" id="formSection">
+                <!-- URL Input -->
+                <div class="form-group">
+                    <label for="videoUrl" class="form-label">
+                        <i class="fas fa-link"></i> Dán URL video
+                    </label>
+                    <input 
+                        type="text" 
+                        id="videoUrl" 
+                        class="form-input" 
+                        placeholder="https://youtube.com/watch?v=... hoặc https://tiktok.com/@..."
+                        autocomplete="off"
+                    >
+                    <small class="help-text">Hỗ trợ YouTube và TikTok</small>
+                </div>
+
+                <!-- Platform Selection -->
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-tv"></i> Nền tảng</label>
+                    <div class="platform-buttons">
+                        <button class="platform-btn active" data-platform="auto">
+                            <i class="fas fa-magic"></i> Tự động
+                        </button>
+                        <button class="platform-btn" data-platform="youtube">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </button>
+                        <button class="platform-btn" data-platform="tiktok">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quality Selection -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quality" class="form-label">
+                            <i class="fas fa-star"></i> Chất lượng
+                        </label>
+                        <select id="quality" class="form-select">
+                            <option value="best">🔥 Tốt nhất (1080p+)</option>
+                            <option value="high">⭐ Cao (720p-1080p)</option>
+                            <option value="medium">📺 Trung bình (480p-720p)</option>
+                            <option value="low">💾 Thấp (360p-480p)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="audioFormat" class="form-label">
+                            <i class="fas fa-volume-up"></i> Định dạng âm thanh
+                        </label>
+                        <select id="audioFormat" class="form-select">
+                            <option value="mp3">MP3 (Phổ biến)</option>
+                            <option value="m4a">M4A (Cao cấp)</option>
+                            <option value="wav">WAV (Không mất dữ liệu)</option>
+                            <option value="aac">AAC (Chất lượng)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Options -->
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-cog"></i> Tuỳ chọn</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" id="audioOnly" class="checkbox-input">
+                            <span class="checkbox-text">
+                                <i class="fas fa-music"></i> Chỉ tải âm thanh
+                            </span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="removeWatermark" class="checkbox-input" checked>
+                            <span class="checkbox-text">
+                                <i class="fas fa-eraser"></i> Xóa logo/watermark (TikTok)
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Download Button -->
+                <button class="btn btn-primary btn-large" id="downloadBtn">
+                    <i class="fas fa-download"></i> Tải video
+                </button>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-header">
+                    <h2 id="progressTitle">Đang xử lý...</h2>
+                    <p id="progressMessage" class="progress-message">Vui lòng chờ</p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">0%</div>
+                </div>
+
+                <!-- Status Icon -->
+                <div class="status-icon" id="statusIcon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="newDownloadBtn">
+                        <i class="fas fa-plus"></i> Tải video khác
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Chất lượng cao</h3>
+                <p>Tải video độ phân giải cao đến 4K</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-eraser"></i>
+                </div>
+                <h3>Không logo</h3>
+                <p>Xóa watermark tự động</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Nhiều định dạng</h3>
+                <p>MP3, M4A, WAV và nhiều hơn nữa</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <h3>YouTube & TikTok</h3>
+                <p>Hỗ trợ cả hai nền tảng phổ biến</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Video Downloader. Tạo với ❤️ cho bạn.</p>
+            <p class="footer-warning">⚠️ Chỉ tải video bạn có quyền. Tôn trọng bản quyền.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
